@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Checkout commands') {
       steps{
-        git branch:'main' url:'https://github.com/sharonshalom07/practice.git'
+        git branch:'main', url:'https://github.com/sharonshalom07/practice.git'
       } 
     }
     stage('Maven') {
