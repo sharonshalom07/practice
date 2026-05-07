@@ -18,16 +18,18 @@ pipeline {
         bat 'mvn clean package'
       }
     }
-    stage('Tomcat') {
-      steps{
-        deploy adapters: [
-          tomcat9(
-            credentialsId:'tomcat_creds',
-              path:''
-            url:'http://localhost:8081'
-            )
-          ],
-          contextpath:'my-web-app',
-          war:'target/*my-web-app.war'
-      }}}}
-            
+        stage('Deploy to Tomcat') {
+            steps {
+                deploy adapters: [
+                    tomcat9(
+                        credentialsId: 'tomcat-creds',
+                        path: '',
+                        url: 'http://localhost:8081'
+                    )
+                ],
+                contextPath: 'my-web-app',
+                war: 'target/*my-web-app.war'
+            }
+        }
+    }
+}
