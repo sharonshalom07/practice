@@ -22,7 +22,7 @@ pipeline {
             steps {
                 deploy adapters: [
                     tomcat9(
-                        credentialsId: 'tomcat-creds',
+                        credentialsId: 'tomcat_creds',
                         path: '',
                         url: 'http://localhost:8081'
                     )
